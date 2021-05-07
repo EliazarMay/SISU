@@ -1,10 +1,7 @@
 <?php
 session_start();
 include_once '../../includes/db2.php';
-
-
 $nombre = $_SESSION['nombre'];
-
 $consulta = "SELECT ar.id_areas,ar.area, us.nombre FROM areas ar
 INNER JOIN usuarios us ON ar.id_usuario = us.id
 WHERE us.nombre = '$nombre'";

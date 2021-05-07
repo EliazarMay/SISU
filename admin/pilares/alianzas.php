@@ -91,6 +91,7 @@ $areas=$conexion->query($consulta);
       <h1>Alianzas</h1>
       <!-- Final Contenido de la Página -->
       <button type="button" data-toggle="modal" data-target="#NewIndicador" class="form-group">Nueva Área</button>
+      <button type="button" data-toggle="modal" data-target="#NewResponsable" class="form-group">Agregar Responsable</button>
       <!-- Final Contenido de la Página -->
       <table class="table">
         <thead>
@@ -98,7 +99,7 @@ $areas=$conexion->query($consulta);
             <th scope="col">#</th>
             <th scope="col">Indicador</th>
             <th scope="col" style="text-align: center">Ver Datos</th>
-            <th scope="col" style="text-align: center">Responsable</th>
+            <th scope="col" style="text-align: center">Responsables</th>
             <th scope="col" style="text-align: center">Generar Reporte</th>
             <th scope="col" colspan="3" style="text-align: center">Acciones</th>
           </tr>
@@ -129,7 +130,7 @@ $areas=$conexion->query($consulta);
               </td>
 
               <td style="text-align: center">
-                <?php echo $area['nombre']; ?>
+                <?php echo $area['nombre'].", ".$area['id_usuario2'].", ".$area['id_usuario3'].", ".$area['id_usuario4'].", ".$area['id_usuario5'].", ".$area['id_usuario6']  ?>
               </td>
 
               <td style="text-align: center">
@@ -161,7 +162,7 @@ $areas=$conexion->query($consulta);
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Nuevo Indicador</h5>
+              <h5 class="modal-title" id="exampleModalCenterTitle">Nueva Área</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -242,6 +243,61 @@ $areas=$conexion->query($consulta);
         </div>
       </div>
     </div>
+    <div class="modal fade" id="NewResponsable" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Agregar Responsable</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="" action="Acciones/nuevoResponsableAlianzas.php" method="POST">
+
+              <input type="hidden" name="Pilar2" value="5">
+              <div class="form-group">
+                <label for="pilar">Área:</label><br>
+                <select class="form-control" name="Area2">
+                  <?php
+                      $res = mysqli_query($conexion,"SELECT * FROM areas WHERE id_pilar =  5");
+                      while ($row = mysqli_fetch_array($res)) {
+                      ?>
+
+                  <option value="<?php echo $row["id_areas"]; ?>"><?php echo $row["area"];?></option>
+
+                  <?php
+                      }
+                      ?>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="pilar">Responsable:</label><br>
+                <select class="form-control" name="Responsable2">
+                  <?php
+                      $res = mysqli_query($conexion,"SELECT * FROM usuarios ");
+                      while ($row = mysqli_fetch_array($res)) {
+                        // code...
+                      ?>
+
+                  <option value="<?php echo $row["nombre"]; ?>"><?php echo $row["nombre"];?></option>
+
+                  <?php
+                      }
+                      ?>
+                </select>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+              </div>
+
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
   <div class="modal fade" id="ModificarDatos" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">

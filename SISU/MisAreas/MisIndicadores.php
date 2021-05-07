@@ -7,7 +7,7 @@ $nombre = $_SESSION['nombre'];
 
 $consulta = "SELECT ar.id_areas,ar.area, us.nombre FROM areas ar
 INNER JOIN usuarios us ON ar.id_usuario = us.id
-WHERE us.nombre = '$nombre'";
+WHERE us.nombre = '$nombre' OR ar.id_usuario2 = '$nombre' OR ar.id_usuario3 = '$nombre' OR ar.id_usuario4 = '$nombre' OR ar.id_usuario5 = '$nombre' OR ar.id_usuario6 = '$nombre'";
 
 $areas=$conexion->query($consulta);
 ?>

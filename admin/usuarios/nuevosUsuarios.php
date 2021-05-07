@@ -111,7 +111,7 @@
             <label for="inputPassword" class="col-sm-3 col-form-label">Tipo de Usuario:</label>
             <div class="col-sm-9">
               <select  name="tipo_Usuario" id="tipo_Usuario" class=" form-control">
-                <option value="3">Profesor</option>
+                <option value="3">Responsable de Área</option>
                 <option value="2">Administrador</option>
                 <option value="1">Root</option>
               </select>

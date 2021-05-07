@@ -94,10 +94,11 @@ $areas=$conexion->query($consulta);
       </nav>
       <h1  align="center"><?php echo $ar;?></h1>
       <button type="button" data-toggle="modal" data-target="#nuevoIndicador" class="form-group">Nuevo Indicador</button>
-      <a class="btn btn-primary" href="indicadoresAlianzas.php?no=29&ar=Alianzas&sec=Academico" role="button">Sector Académico</a>
-      <a class="btn btn-secondary" href="indicadoresAlianzas.php?no=29&ar=Alianzas&sec=Publico" role="button">Sector Público</a>
-      <a class="btn btn-warning" href="indicadoresAlianzas.php?no=29&ar=Alianzas&sec=Privado" role="button">Sector Privado</a>
-      <a class="btn btn-info" href="indicadoresAlianzas.php?no=29&ar=Alianzas&sec=Sociedad Civil" role="button">Sector de la Sociedad Civil</a><br><br>
+      <a class="btn btn-primary" href="indicadoresAlianzas.php?no=<?php echo $id ?>&ar=Alianzas&sec=Academico" role="button">Sector Académico</a>
+      <a class="btn btn-secondary" href="indicadoresAlianzas.php?no=<?php echo $id; ?>&ar=Alianzas&sec=Publico" role="button">Sector Público</a>
+      <a class="btn btn-warning" href="indicadoresAlianzas.php?no=<?php echo $id; ?>&ar=Alianzas&sec=Privado" role="button">Sector Privado</a>
+      <a class="btn btn-info" href="indicadoresAlianzas.php?no=<?php echo $id; ?>&ar=Alianzas&sec=Sociedad Civil" role="button">Sector de la Sociedad Civil</a>
+      <button type="button" data-toggle="modal" data-target="#nuevaOrganizacion" class="btn btn-dark">Nueva Organización</button>
       <div class="col">
         <!-- Inicio Tabla -->
         <table class="table">
@@ -166,6 +167,8 @@ $areas=$conexion->query($consulta);
           </tbody>
         </table>
       </div>
+
+
       <div class="modal fade" id="nuevoIndicador" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
@@ -184,7 +187,7 @@ $areas=$conexion->query($consulta);
                 <div class="form-group">
                   <label for="pilar">Area:</label><br>
                   <select class="form-control" name="areasIndicadores">
-                    <option value="29">Alianzas</option>
+                    <option value="<?php echo $id ?>">Alianzas</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -251,6 +254,30 @@ $areas=$conexion->query($consulta);
                 </div>
               </form>
             </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="modal fade" id="nuevaOrganizacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Nueva Organización:</h5>
+              <a href="organizaciones.php" class="btn btn-default">Organizaciones</a>
+            </div>
+            <form class="form-group" action="Acciones/nuevaOrganizacion.php" method="get">
+              <div class="modal-body">
+                <label>Nombre Organización:</label>
+                <input type="text" class="form-control" id="Organizacion" name="Organizacion">
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-success">Envíar</button>
+              </div>
+
+            </form>
           </div>
         </div>
       </div>

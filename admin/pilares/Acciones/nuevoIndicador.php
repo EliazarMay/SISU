@@ -1,6 +1,6 @@
 <?php
 
-	nuevoIndicador($_GET['Indicador'],$_GET['areasIndicadores'],);
+	nuevoIndicador($_GET['Indicador'],$_GET['areasIndicadores']);
 
   function nuevoIndicador($indicador, $areasIndicadores ){
 		include '../../../includes/db2.php';
@@ -10,7 +10,7 @@
 								indicadores (indicador, id_area, FechaCreacion)
         				VALUES ('".$indicador."', '".$areasIndicadores."','".$Fechareg."')";
 
-		$conexion->query($sentencia) or die ("Error al crear usuario: ".mysqli_error($conexion));
+		$conexion->query($sentencia) or die ("Error al crear Indicador: ".mysqli_error($conexion));
 
 				echo '<script>';
 				echo 'alert("Indicador creado exitosamente!!");';

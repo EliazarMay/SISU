@@ -10,7 +10,7 @@
 								indicadores (indicador, id_area, FechaCreacion, sector)
         				VALUES ('".$indicador."', '".$areasIndicadores."','".$Fechareg."','".$sector."')";
 
-		$conexion->query($sentencia) or die ("Error al crear Indicador: ".mysqli_error($conexion));
+		$conexion->query($sentencia) or die ("Error al crear usuario: ".mysqli_error($conexion));
 
 				echo '<script>';
 				echo 'alert("Indicador creado exitosamente!!");';

@@ -2,7 +2,6 @@
 include '../../includes/db2.php';
 session_start();
 $id = $_GET['no'];
-$ar = $_GET['ar'];
 $sec = $_GET['sec'];
 $consulta = "SELECT * FROM indicadores WHERE id_area = '$id' AND sector = '$sec';";
 $resAlumnos=$conexion->query($consulta);
@@ -53,11 +52,33 @@ $resAlumnos=$conexion->query($consulta);
 
 			</div>
 			<div class="col-8">
-				<button type="button" data-toggle="modal" data-target="#nuevoIndicador" class="btn btn-success">Nuevo Indicador</button>
+				<button type="button" data-toggle="modal" data-target="#nuevoIndicador" class="btn btn-success">Nueva Organización</button>
 				<a class="btn btn-primary" href="DatosAlianzas.php?no=29&ar=Alianzas&sec=Academico" role="button">Sector Académico</a>
 				<a class="btn btn-secondary" href="DatosAlianzas.php?no=29&ar=Alianzas&sec=Publico" role="button">Sector Público</a>
 				<a class="btn btn-warning" href="DatosAlianzas.php?no=29&ar=Alianzas&sec=Privado" role="button">Sector Privado</a>
-				<a class="btn btn-info" href="indicadoresAlianzas.php?no=29&ar=Alianzas&sec=Sociedad Civil" role="button">Sector de la Sociedad Civil</a> <br><br>
+				<a class="btn btn-info" href="DatosAlianzas.php?no=29&ar=Alianzas&sec=Sociedad Civil" role="button">Sector de la Sociedad Civil</a>
+				      <button type="button" data-toggle="modal" data-target="#nuevaOrganizacion" class="btn btn-dark">Nueva Colaboración</button> <br><br>
+				<div class="modal fade" id="nuevaOrganizacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalCenterTitle">Nueva Colaboración:</h5>
+							</div>
+							<form class="form-group" action="../Acciones/nuevaOrganizacion.php" method="get">
+								<div class="modal-body">
+									<label>Nombre Colaboración:</label>
+									<input type="text" class="form-control" id="Organizacion" name="Organizacion">
+								</div>
+
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+									<button type="submit" class="btn btn-success">Envíar</button>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
 				<form method="post">
 					<table class="table">
 						<thead style="text-align: center; color: #ffff;">
@@ -116,12 +137,12 @@ $resAlumnos=$conexion->query($consulta);
 							<div class="modal-body">
 								<form class="" action="../Acciones/nuevoIndicadorAlianzas.php" method="GET">
 									<div class="form-group">
-										<label for="pilar">Nombre Indicador</label>
+										<label for="pilar">Nombre Organización</label>
 										<input type="text" name="Indicador" value="" class="form-control">
 									</div>
 									<div class="form-group">
 										<label for="pilar" >Area:</label><br>
-										<select class="form-control" name="areasIndicadores " disabled>
+										<select class="form-control" name="areasIndicadores">
 											<option value="29">Alianzas</option>
 										</select>
 									</div>

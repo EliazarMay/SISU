@@ -70,34 +70,25 @@ $areas=$conexion->query($consulta);
             <tr class="bg-info">
               <th scope="col">#</th>
               <th scope="col">Indicador</th>
-              <th scope="col">Primavera</th>
-              <th scope="col">Verano</th>
-              <th scope="col">Otoño</th>
-              <th scope="col">Anual</th>
+              <th scope="col">Tipo de Colaboración</th>
+              <th scope="col">Especificar</th>
               <th scope="col">Enlace Drive</th>
-              <th scope="col">Ver Gráficas</th>
             </tr>
           </thead>
           <tbody>
             <?php
-    						$php = ".php";
+    						$contador = 0;
     							foreach ($areas as $area) {
+                    $contador = $contador + 1;
     						?>
             <tr>
-              <td> <?php echo $area['numero']; ?> </td>
+              <td> <?php echo $contador; ?> </td>
               <td> <?php echo $area['indicador']; ?> </td>
-              <td style="text-align: center"> <?php echo $area['periodo_1']; ?> </td>
-              <td style="text-align: center"> <?php echo $area['periodo_2']; ?> </td>
-              <td style="text-align: center"> <?php echo $area['periodo_3']; ?> </td>
-              <td style="text-align: center"> <?php echo $area['conteo_anual']; ?> </td>
+              <td style="text-align: center"> <?php echo $area['tipo_colaboracion']; ?> </td>
+              <td style="text-align: center"> <?php echo $area['informacion']; ?> </td>
               <td style="text-align: center">
                 <a style=" color: rgb(50, 138, 181); font-size: 1.3rem;" href="<?php echo $area['enlace'];?>" title="Enlace a Drive">
                   <i class="fab fa-google-drive"></i>
-                </a>
-              </td>
-              <td style="text-align: center">
-                <a style=" color: rgb(228, 21, 70); font-size: 1.3rem;" href="Graficas/index.php?id_indicador=<?php echo $area['id_indicador'];?>" title="Gráficas">
-                  <i class="fas fa-chart-bar"></i>
                 </a>
               </td>
             </tr>
