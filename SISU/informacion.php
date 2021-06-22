@@ -50,12 +50,12 @@ $areas=$conexion->query($consulta);
 						<span class="lines sec-line"></span>
 						<span class="lines third-line"></span>
 					</label>
-          <a href="Personas.php" class="menu-item col1" title="Personas"><i class="fas fa-user-friends"></i></a>
-          <a href="Planeta.php" class="menu-item col2"><i class="fas fa-globe-americas" title="Planeta"></i></a>
-          <a href="Prosperidad.php" class="menu-item col3"><i class="fas fa-hand-holding-usd" title="Prosperidad"></i></i></a>
-          <a href="Paz.php" class="menu-item col4"><i class="fas fa-dove" title="Paz"></i></a>
-          <a href="Alianzas.php" class="menu-item col5"><i class="fas fa-handshake" title="Alianzas"></i></a>
-          <a href="DatosGenerales.php" class="menu-item col6"><i class="fas fa-school" title="Datos Generales"></i></a>
+          <a href="Personas.php?año=<?php echo Date("Y"); ?>" class="menu-item col1" title="Personas"><i class="fas fa-user-friends"></i></a>
+          <a href="Planeta.php?año=<?php echo Date("Y"); ?>" class="menu-item col2"><i class="fas fa-globe-americas" title="Planeta"></i></a>
+          <a href="Prosperidad.php?año=<?php echo Date("Y"); ?>" class="menu-item col3"><i class="fas fa-hand-holding-usd" title="Prosperidad"></i></i></a>
+          <a href="Paz.php?año=<?php echo Date("Y"); ?>" class="menu-item col4"><i class="fas fa-dove" title="Paz"></i></a>
+          <a href="Alianzas.php?año=<?php echo Date("Y"); ?>" class="menu-item col5"><i class="fas fa-handshake" title="Alianzas"></i></a>
+          <a href="DatosGenerales.php?año=<?php echo Date("Y"); ?>" class="menu-item col6"><i class="fas fa-school" title="Datos Generales"></i></a>
 				</nav>
 
 			</div>
@@ -64,11 +64,11 @@ $areas=$conexion->query($consulta);
 
         <table class="table">
 					<thead>
-						<tr class="bg-danger">
-							<th>Id</th>
+						<tr class="bg-info">
+
 							<th scope="col">Nombre</th>
 							<th scope="col">Usuario</th>
-              <th scope="col">Tipo de Usuario</th>
+              <th scope="col">Puesto</th>
               <th scope="col">Fecha de registro</th>
               <th scope="col">Accioness</th>
 						</tr>
@@ -78,12 +78,11 @@ $areas=$conexion->query($consulta);
 							foreach ($areas as $area) {
 						?>
 						<tr>
-							<td> <?php echo $area['id']; ?> </td>
 							<td> <?php echo $area['nombre']; ?> </td>
 							<td> <?php echo $area['username']; ?> </td>
               <td> <?php echo $area['tipo_de_usuario']; ?> </td>
               <td> <?php echo $area['fecha_reg']; ?> </td>
-							<td><button type="button" class="editbtn" data-toggle="modal" data-target="#NewPass">Cambiar Contraseña</button></td>
+							<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#NewPass">Cambiar Contraseña</button></td>
 
 						</tr>
 						<?php
@@ -114,7 +113,7 @@ $areas=$conexion->query($consulta);
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-									<button type="submit" class="btn btn-primary">Guardar</button>
+									<button type="submit" class="btn btn-success">Guardar</button>
 								</div>
 								</form>
 							</div>

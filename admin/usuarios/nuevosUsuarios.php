@@ -16,13 +16,13 @@
 		<div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar">
 				<div class="p-4 pt-5">
-		  		<a href="../index.html" class="img logo rounded-circle mb-5" style="background-image: url(../images/logo.jpg);"></a>
+		  		<a href="../index.php" class="img logo rounded-circle mb-5" style="background-image: url(../images/logo.jpg);"></a>
 	        <ul class="list-unstyled components mb-5">
 	          <li class="active">
 	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pilares</a>
 	            <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
-                    <a href="../pilares/añadirPilares.php?id=0">Generar un nuevo periodo</a>
+                    <a href="../pilares/añadirPilares.php?id=1&año_ref=<?php echo Date("Y"); ?>">Generar un nuevo periodo</a>
                 </li>
                 <li>
                     <a href="../pilares/personas.php">Personas</a>
@@ -104,6 +104,12 @@
             <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
             <div class="col-sm-9">
               <input type="password" class="form-control" id="Contraseña" name="Contraseña" placeholder="Contraseña">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPuesto" class="col-sm-3 col-form-label">Puesto</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="Contraseña" name="Puesto" placeholder="Puesto">
             </div>
           </div>
 

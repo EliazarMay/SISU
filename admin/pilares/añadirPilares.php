@@ -1,9 +1,12 @@
 <?php
+error_reporting(0);
 include '../../includes/db2.php';
-$ide_areas = $_GET['id'];
+$ide_areas = $_POST['id'];
+$año_refe = $_POST['año_ref'];
+$año = $_POST['año'];
 $alumnos="SELECT *
-FROM indicadores
-WHERE id_area = '".$ide_areas."'";
+FROM indicadores INNER JOIN areas ON indicadores.id_area = areas.id_areas
+WHERE indicadores.id_area = '".$ide_areas."' AND areas.año = '".$año_refe."'";
 $resAlumnos=$conexion->query($alumnos);
 ?>
 <!doctype html>
@@ -29,7 +32,7 @@ $resAlumnos=$conexion->query($alumnos);
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pilares</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
               <li>
-                <a href="añadirPilares.php?id=0">Generar un nuevo periodo</a>
+                <a href="añadirPilares.php?id=1&año_ref=<?php echo Date("Y"); ?>">Generar un nuevo periodo</a>
               </li>
               <li>
                 <a href="personas.php">Personas</a>
@@ -93,8 +96,9 @@ $resAlumnos=$conexion->query($alumnos);
       <br><br>
       <div class="">
 
-      <form class="form-comtrol" action="añadirPilares.php?>" method="get">
+      <form class="form-comtrol" action="añadirPilares.php" method="post">
 
+        <label class="label">Seleccione el area que desea generar:</label>
         <select class="form-control" name="id">
           <?php
             $res = mysqli_query($conexion,"select * from areas");
@@ -108,28 +112,34 @@ $resAlumnos=$conexion->query($alumnos);
             ?>
         </select>
         <br>
-        <select class="form-control" name="">
-          <option value="">2019</option>
-          <option value="">2020</option>
-          <option value="">2021</option>
-          <option value="">2022</option>
-          <option value="">2023</option>
-          <option value="">2024</option>
-          <option value="">2025</option>
-          <option value="">2026</option>
-          <option value="">2027</option>
-          <option value="">2028</option>
-          <option value="">2029</option>
-          <option value="">2030</option>
+        <label>Seleccione el año de referencia:</label>
+        <br>
+        <select class="form-control" name="año_ref">
+          <option value="2019">2019</option>
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+          <option value="2025">2025</option>
+          <option value="2026">2026</option>
+          <option value="2027">2027</option>
+          <option value="2028">2028</option>
+          <option value="2029">2029</option>
+          <option value="2030">2030</option>
 
         </select>
+        <br>
+        <label>Ingrese el año que desea generar</label>
+        <input type="number" name="año" class="form-control" required>
         <br>
         <button class="form-control btn-info" type="submit">Buscar</button>
       </form>
     </div>
 
       <h2>Indicadores</h2>
-      <form method="post">
+      <form class="" action="Acciones/generarIndicadores.php" method="get">
+
 			<table class="table">
 				<thead>
 
@@ -141,15 +151,16 @@ $resAlumnos=$conexion->query($alumnos);
 				</thead>
 				<?php
 
+        $i = 1;
 				while ($registroAlumnos = $resAlumnos->fetch_array(MYSQLI_BOTH))
 
 				{
-
+          $i = $i+1;
 					echo'<tr>
-
-          	 <td hidden><input name="idalu[]" value="'.$registroAlumnos['id_indicador'].'" /></td>
 						 <td>'.$registroAlumnos['numero'].'</td>
-             <td><input type="text" class="form-control" name="carr['.$registroAlumnos['id_indicador'].']" value="'.$registroAlumnos['indicador'].'" /></td>
+             <td><input type="text" class="form-control" name="indicador[]" value="'.$registroAlumnos['indicador'].'"> </td>
+             <td><input type="hidden" class="form-control" name="id_areas[]" value="'.$ide_areas.'" /></td>
+             <td><input type="hidden" class="form-control" name="año[]" value="'.$año.'" /></td>
 
                </tr>';
 				}
@@ -158,84 +169,9 @@ $resAlumnos=$conexion->query($alumnos);
 				?>
 
 			</table>
-			<input type="submit" name="actualizar" value="Generar Indicadores" class="btn btn-success" />
-		</form>
-      <!-- Modal -->
-      <div class="modal fade" id="NewArea" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Nueva Área</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form class="" action="Acciones/añadirArea.php" method="post">
-                <div class="form-group">
-                  <label for="area">Nombre del Indicador</label>
-                  <input type="text" class="form-control" name="Area" value="">
-                </div>
 
-                <div class="form-group">
-                  <label for="Pilar">Area</label><br>
-                  <select class="form-control" name="Pilar">
-                    <?php
-                      $res = mysqli_query($conexion,"select * from areas");
-                      while ($row = mysqli_fetch_array($res)) {
-                      ?>
-
-                    <option value="<?php echo $row["id_areas"]; ?>"><?php echo $row["area"];?></option>
-
-                    <?php
-                      }
-                      ?>
-                  </select>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <input type="button" name="actualizar" value="Actualizar Registros" class="btn btn-primary">
-                  <!-- <button type="submit" class="btn btn-primary">Guardar Cambios</button> -->
-                </div>
-              </form>
-              <?php
-
-          			if(isset($_POST['actualizar']))
-          			{
-          				foreach ($_POST['idalu'] as $ids)
-          				{
-
-          					$editNom=mysqli_real_escape_string($conexion, $_POST['carr'][$ids]);
-          					$editCarr=mysqli_real_escape_string($conexion, $_POST['gru'][$ids]);
-          					$editGru=mysqli_real_escape_string($conexion, $_POST['otoñ'][$ids]);
-          					$editCont=mysqli_real_escape_string($conexion, $_POST['cont'][$ids]);
-          					$editEnlac=mysqli_real_escape_string($conexion, $_POST['enla'][$ids]);
-
-          					$actualizar=$conexion->query("UPDATE indicadores SET  periodo_1='$editNom', periodo_2='$editCarr',
-          																		periodo_3='$editGru', conteo_anual='$editCont', enlace='$editEnlac' WHERE id_indicador='$ids'");
-          				}
-
-          				if($actualizar==true)
-          				{
-          					echo '<script>';
-          					echo 'alert("Datos actualizados correctamente");';
-          					echo 'window.location.href="MisDatos.php";';
-          					echo '</script>';
-          				}
-
-          				else
-          				{
-          					echo "No se pudieron actualizar los datos correctamente";
-          				}
-          			}
-
-?>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
+      <button class=" btn-success" type="submit">Generar Indicadores</button>
+    </form>
     </div>
   </div>
 

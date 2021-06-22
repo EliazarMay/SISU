@@ -33,7 +33,7 @@ $areas=$conexion->query($consulta);
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pilares</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
               <li>
-                <a href="añadirPilares.php?id=0">Generar un nuevo periodo</a>
+                <a href="añadirPilares.php?id=1&año_ref=<?php echo Date("Y"); ?>">Generar un nuevo periodo</a>
               </li>
               <li>
                 <a href="personas.php">Personas</a>
@@ -216,7 +216,7 @@ $areas=$conexion->query($consulta);
 
                 <input type="hidden" name="Pilar" value="6">
                 <div class="form-group">
-                  <label for="pilar">Resposnable:</label><br>
+                  <label for="pilar">Responsable:</label><br>
                   <select class="form-control" name="Responsable">
                     <?php
                         $res = mysqli_query($conexion,"SELECT * FROM usuarios ");
@@ -296,7 +296,7 @@ $areas=$conexion->query($consulta);
               <option value="Diciembre">Diciembre</option>
             </select>
           </div>
-          <input type="hidden" name="Pilar" value="1">
+          <input type="hidden" name="Pilar" value="6">
 
           <div class="modal-body">
             <label for="pilar">Responsable:</label><br>
@@ -335,7 +335,7 @@ $areas=$conexion->query($consulta);
         <div class="modal-body">
           <form class="" action="Acciones/eliminarArea.php" method="GET">
             <input type="hidden" style="text-align: center;" class="form-control" id="id_Ar" name="no">
-            <input type="hidden" name="Pilar" value="1">
+            <input type="hidden" name="Pilar" value="6">
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
               <button type="submit" class="btn btn-danger">Eliminar</button>

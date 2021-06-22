@@ -32,7 +32,7 @@ $areas=$conexion->query($consulta);
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pilares</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
               <li>
-                <a href="añadirPilares.php?id=0">Generar un nuevo periodo</a>
+                <a href="añadirPilares.php?id=1&año_ref=<?php echo Date("Y"); ?>">Generar un nuevo periodo</a>
               </li>
               <li>
                 <a href="personas.php">Personas</a>
@@ -235,7 +235,7 @@ $areas=$conexion->query($consulta);
               </div>
 
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="location.reload();">Cerrar</button>
                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
               </div>
 
@@ -315,7 +315,7 @@ $areas=$conexion->query($consulta);
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="location.reload();" >Cerrar</button>
               <button type="submit" class="btn btn-success">Envíar</button>
             </div>
 

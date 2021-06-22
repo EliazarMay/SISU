@@ -22,19 +22,19 @@ $usuarios=$conexion->query($consulta);
   <div class="wrapper d-flex align-items-stretch">
     <nav id="sidebar">
       <div class="p-4 pt-5">
-        <a href="../index.html" class="img logo rounded-circle mb-5" style="background-image: url(../images/logo.jpg);"></a>
+        <a href="../index.php" class="img logo rounded-circle mb-5" style="background-image: url(../images/logo.jpg);"></a>
         <ul class="list-unstyled components mb-5">
           <li class="active">
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pilares</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
               <li>
-                <a href="../pilares/añadirPilares.php?id=0">Generar un nuevo periodo</a>
+                <a href="../pilares/añadirPilares.php?id=1&año_ref=<?php echo Date("Y"); ?>">Generar un nuevo periodo</a>
               </li>
               <li>
                 <a href="../pilares/personas.php">Personas</a>
               </li>
               <li>
-                <a href="../pilares/planeta.php">Planeta</a>
+                <a href="../pilares/planet.php">Planeta</a>
               </li>
               <li>
                 <a href="../pilares/prosperidad.php">Prosperidad</a>
@@ -109,7 +109,8 @@ $usuarios=$conexion->query($consulta);
                     $data = $usuario['nombre']."||".
                             $usuario['username']."||".
                             $usuario['id']."||".
-                            $usuario['password'];
+                            $usuario['password']."||".
+                            $usuario['puesto'];
     						?>
           <tr>
             <td>
@@ -184,7 +185,7 @@ $usuarios=$conexion->query($consulta);
                 <input type="text" class="form-control" id="nombre" name="nombreCompleto">
               </div>
               <div class="modal-body">
-                <label class="">Usuario</label>
+                <label class="">Usuario:</label>
                 <input type="text" class="form-control" id="username" name="username">
               </div>
               <div class="modal-body">
@@ -201,6 +202,10 @@ $usuarios=$conexion->query($consulta);
                   <option value="Habilitado">Habilitado</option>
                   <option value="Inhabilitado">Inhabilitado</option>
                 </select>
+              </div>
+              <div class="modal-body">
+                <label class="">Puesto:</label>
+                <input type="text" class="form-control" id="puesto" name="puesto">
               </div>
               <div class="modal-body">
                 <label>Cambiar Contraseña:</label>
@@ -273,6 +278,7 @@ $usuarios=$conexion->query($consulta);
       $('#id_usuario').val(d[2]);
       $('#password').val(d[3]);
       $('#password2').val(d[3]);
+      $('#puesto').val(d[4]);
     }
     function eliminarUsuario(datos) {
       $('#id_Usr').val(datos);

@@ -20,7 +20,6 @@ $areas=$conexion->query($consulta);
 <body class="bg-image img-responsive">
 
 	<div class="header">
-		<!-- <a href="#default" class="logo"> <img src="../img/si1.jpeg" alt=""> </a> -->
 		<div class="header-right">
 			<a href=menu.php>Inicio</a>
 			<a href=MisAreas/MisIndicadores.php>Mis Indicadores</a>
@@ -43,27 +42,18 @@ $areas=$conexion->query($consulta);
 						<span class="lines sec-line"></span>
 						<span class="lines third-line"></span>
 					</label>
-					<a href="Personas.php" class="menu-item col1" title="Personas"><i class="fas fa-user-friends"></i></a>
-          <a href="Planeta.php" class="menu-item col2"><i class="fas fa-globe-americas" title="Planeta"></i></a>
-          <a href="Prosperidad.php" class="menu-item col3"><i class="fas fa-hand-holding-usd" title="Prosperidad"></i></i></a>
-          <a href="Paz.php" class="menu-item col4"><i class="fas fa-dove" title="Paz"></i></a>
-          <a href="Alianzas.php" class="menu-item col5"><i class="fas fa-handshake" title="Alianzas"></i></a>
-          <a href="DatosGenerales.php" class="menu-item col6"><i class="fas fa-school" title="Datos Generales"></i></a>
+					<a href="Personas.php?año=<?php echo Date("Y"); ?>" class="menu-item col1" title="Personas"><i class="fas fa-user-friends"></i></a>
+          <a href="Planeta.php?año=<?php echo Date("Y"); ?>" class="menu-item col2"><i class="fas fa-globe-americas" title="Planeta"></i></a>
+          <a href="Prosperidad.php?año=<?php echo Date("Y"); ?>" class="menu-item col3"><i class="fas fa-hand-holding-usd" title="Prosperidad"></i></i></a>
+					<a href="Paz.php?año=<?php echo Date("Y"); ?>" class="menu-item col4"><i class="fas fa-dove" title="Paz"></i></a>
+          <a href="Alianzas.php?año=<?php echo Date("Y"); ?>" class="menu-item col5"><i class="fas fa-handshake" title="Alianzas"></i></a>
+          <a href="DatosGenerales.php?año=<?php echo Date("Y"); ?>" class="menu-item col6"><i class="fas fa-school" title="Datos Generales"></i></a>
 				</nav>
 
 			</div>
 			<!-- Final Navbar -->
 			<div class="col-8">
-				<form class="form-group" action="#" method="get">
-					<input type="hidden" name="no" value="<?php echo $id ?>">
-					<input type="hidden" name="ar" value="<?php echo $ar ?>">
-					<div class="form-group mb-2">
-						<select class="form-control" name="año">
-							<option value="2021">2021</option>
-						</select>
-					</div>
-					<button type="submit" class="btn btn-info mb-2 form-control">Buscar</button>
-				</form>
+
 				<!-- Inicio Tabla -->
 
 				<table class="table">
@@ -85,7 +75,7 @@ $areas=$conexion->query($consulta);
 							<td> <?php echo $contador ?> </td>
 							<td> <?php echo $area['area']; ?> </td>
 							<td style="text-align: center">
-								<a style="color: #28292d; text-align:center;" href="Indicadores.php?no=<?php echo $area['id_areas'];?>&ar=<?php echo $area['area'] ?>">
+								<a style="color: #28292d; text-align:center;" href="Indicadores.php?no=<?php echo $area['id_areas'];?>&ar=<?php echo $area['area'] ?>&año=<?php echo Date("Y") ?>">
 									<i class="fas fa-info-circle fa-2x"></i>
 								</a>
 							</td>
@@ -101,9 +91,7 @@ $areas=$conexion->query($consulta);
 						?>
 					</tbody>
 				</table>
-				<div class="text-center">
-					<button type="button" data-toggle="modal" data-target="#NewArea">Ir a reportes</button>
-				</div>
+
 				<div class="modal fade" id="NewArea" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">

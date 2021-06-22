@@ -47,12 +47,12 @@ $areas=$conexion->query($consulta);
 						<span class="lines sec-line"></span>
 						<span class="lines third-line"></span>
 					</label>
-					<a href="../Personas.php" class="menu-item col1"><i class="fas fa-user-friends"></i></a>
-					<a href="../Planeta.php" class="menu-item col2"><i class="fas fa-globe-americas"></i></a>
-					<a href="../Prosperidad.php" class="menu-item col3"><i class="fas fa-hand-holding-usd"></i></i></a>
-					<a href="../Paz.php" class="menu-item col4"><i class="fas fa-dove"></i></a>
-					<a href="../Alianzas.php" class="menu-item col5"><i class="fas fa-handshake"></i></a>
-					<a href="../DatosGenerales.php" class="menu-item col6"><i class="fas fa-school"></i></a>
+					<a href="../Personas.php?año=<?php echo Date("Y"); ?>" class="menu-item col1"><i class="fas fa-user-friends"></i></a>
+					<a href="../Planeta.php?año=<?php echo Date("Y"); ?>" class="menu-item col2"><i class="fas fa-globe-americas"></i></a>
+					<a href="../Prosperidad.php?año=<?php echo Date("Y"); ?>" class="menu-item col3"><i class="fas fa-hand-holding-usd"></i></i></a>
+					<a href="../Paz.php?año=<?php echo Date("Y"); ?>" class="menu-item col4"><i class="fas fa-dove"></i></a>
+					<a href="../Alianzas.php?año=<?php echo Date("Y"); ?>" class="menu-item col5"><i class="fas fa-handshake"></i></a>
+					<a href="../DatosGenerales.php?año=<?php echo Date("Y"); ?>" class="menu-item col6"><i class="fas fa-school"></i></a>
 				</nav>
 
 			</div>

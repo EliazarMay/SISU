@@ -1,60 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--- Include the above in your HEAD tag ---------->
+<link rel="stylesheet" href="CSS/login.css">
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SISU</title>
-  <!--Bootstrap CDN -->
-  <link rel="stylesheet" href="/CSS/main.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Icon -->
+    <div class="fadeIn first">
 
-<body style="
-          background-image: url('img/bg.png');
-          background-position: center center;
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-          background-size: cover;
-          background-color: #6d6161;
-">
-  <br /><br />
-
-  <div class="text-center">
-    <img src="img/logo-20.png" width="400" height="136" alt="logo">
-  </div>
-  <br /><br />
-
-
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4">
-      </div>
-
-      <div class="col-sm-6">
-
-        <form action="login.php" method="POST">
-          <div class="form-group row">
-            <label for="exampleInputEmail1" class="col-md-2 col-form-label">Usuario</label>
-            <div class="col-md-4">
-              <input type="text" class="form-control" name="username" aria-describedby="emailHelp" placeholder="Usuario">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="exampleInputPassword1" class="col-md-2 col-form-label">Contraseña</label>
-            <div class="col-md-4">
-              <input type="password" class="form-control" name="password" placeholder="Contraseña">
-            </div>
-          </div>
-          <br />
-          <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md"><button type="submit" class="btn btn-primary">Ingresar</button></div>
-
-          </div>
-        </form>
-      </div>
+      <img src="img/logotipo.jpg" id="icon" alt="logo">
     </div>
-  </div>
-</body>
 
-</html>
+    <!-- Login Form -->
+    <form action="login.php" method="POST">
+      <input type="text" id="username" class="fadeIn second" name="username" placeholder="Usuario" pattern="[A-Za-z]{1,15}">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Contraseña" pattern="[A-Za-z0-9]{1-15}">
+      <input type="submit"  value="Iniciar Sesión">
+    </form>
+
+  </div>
+</div>

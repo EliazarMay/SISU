@@ -1,7 +1,7 @@
 <?php
 include '../../includes/db2.php';
 session_start();
-$id = $_GET['no'];
+$id = $_GET['id_area'];
 $sec = $_GET['sec'];
 $consulta = "SELECT * FROM indicadores WHERE id_area = '$id' AND sector = '$sec';";
 $resAlumnos=$conexion->query($consulta);
@@ -26,6 +26,7 @@ $resAlumnos=$conexion->query($consulta);
 		<div class="header-right">
 			<a href=../menu.php>Inicio</a>
 			<a href=MisIndicadores.php>Mis Indicadores</a>
+			<a href="../informacion.php" class="text"><?php echo $_SESSION['nombre']; ?></a>
 			<a href="../../includes/logout.php">Cerrar Sesión</a>
 		</div>
 	</div>
@@ -42,22 +43,22 @@ $resAlumnos=$conexion->query($consulta);
 						<span class="lines sec-line"></span>
 						<span class="lines third-line"></span>
 					</label>
-					<a href="../Personas.php" class="menu-item col1"><i class="fas fa-user-friends"></i></a>
-					<a href="../Planeta.php" class="menu-item col2"><i class="fas fa-globe-americas"></i></a>
-					<a href="../Prosperidad.php" class="menu-item col3"><i class="fas fa-hand-holding-usd"></i></i></a>
-					<a href="../Paz.php" class="menu-item col4"><i class="fas fa-dove"></i></a>
-					<a href="../Alianzas.php" class="menu-item col5"><i class="fas fa-handshake"></i></a>
-					<a href="../MisDatos.php" class="menu-item col6"><i class="fa fa-info"></i></a>
+					<a href="../Personas.php?año=<?php echo Date("Y"); ?>" class="menu-item col1"><i class="fas fa-user-friends"></i></a>
+					<a href="../Planeta.php?año=<?php echo Date("Y"); ?>" class="menu-item col2"><i class="fas fa-globe-americas"></i></a>
+					<a href="../Prosperidad.php?año=<?php echo Date("Y"); ?>" class="menu-item col3"><i class="fas fa-hand-holding-usd"></i></i></a>
+					<a href="../Paz.php?año=<?php echo Date("Y"); ?>" class="menu-item col4"><i class="fas fa-dove"></i></a>
+					<a href="../Alianzas.php?año=<?php echo Date("Y"); ?>" class="menu-item col5"><i class="fas fa-handshake"></i></a>
+					<a href="../MisDatos.php?año=<?php echo Date("Y"); ?>" class="menu-item col6"><i class="fa fa-info"></i></a>
 				</nav>
 
 			</div>
 			<div class="col-8">
-				<button type="button" data-toggle="modal" data-target="#nuevoIndicador" class="btn btn-success">Nueva Organización</button>
-				<a class="btn btn-primary" href="DatosAlianzas.php?no=29&ar=Alianzas&sec=Academico" role="button">Sector Académico</a>
-				<a class="btn btn-secondary" href="DatosAlianzas.php?no=29&ar=Alianzas&sec=Publico" role="button">Sector Público</a>
-				<a class="btn btn-warning" href="DatosAlianzas.php?no=29&ar=Alianzas&sec=Privado" role="button">Sector Privado</a>
-				<a class="btn btn-info" href="DatosAlianzas.php?no=29&ar=Alianzas&sec=Sociedad Civil" role="button">Sector de la Sociedad Civil</a>
-				      <button type="button" data-toggle="modal" data-target="#nuevaOrganizacion" class="btn btn-dark">Nueva Colaboración</button> <br><br>
+				<a class="btn btn-primary" href="DatosAlianzas.php?id_area=29&ar=Alianzas&sec=Academico" role="button">Sector Académico</a>
+				<a class="btn btn-secondary" href="DatosAlianzas.php?id_area=29&ar=Alianzas&sec=Publico" role="button">Sector Público</a>
+				<a class="btn btn-warning" href="DatosAlianzas.php?id_area=29&ar=Alianzas&sec=Privado" role="button">Sector Privado</a>
+				<a class="btn btn-danger" href="DatosAlianzas.php?id_area=29&ar=Alianzas&sec=Sociedad Civil" role="button">Sector de la Sociedad Civil</a>
+				<button type="button" data-toggle="modal" data-target="#nuevoIndicador" class="btn btn-success">Nuevo Sector</button>
+				      <button type="button" data-toggle="modal" data-target="#nuevaOrganizacion" class="btn btn-success">Nueva Colaboración</button> <br><br>
 				<div class="modal fade" id="nuevaOrganizacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
@@ -84,7 +85,7 @@ $resAlumnos=$conexion->query($consulta);
 						<thead style="text-align: center; color: #ffff;">
 							<tr class="bg-secondary">
 								<th scope="col">#</th>
-								<th scope="col">Indicador</th>
+								<th scope="col">Sector Academico</th>
 								<th scope="col">Tipo de Colaboración</th>
 								<th scope="col">Especificar</th>
 							</tr>

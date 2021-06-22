@@ -1,5 +1,5 @@
 <?php
-
+$id_indicador = $_GET['id'];
 $id = $_GET['no'];
 $ar = $_GET['ar'];
 session_start();
@@ -11,7 +11,6 @@ $areas=$conexion->query($consulta);
 
 <!doctype html>
 <html lang="en">
-
 <head>
   <title>Personas</title>
   <meta charset="utf-8">
@@ -34,7 +33,7 @@ $areas=$conexion->query($consulta);
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pilares</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
               <li>
-                <a href="añadirPilares.php?id=0">Generar un nuevo periodo</a>
+                <a href="añadirPilares.php?id=1&año_ref=<?php echo Date("Y"); ?>">Generar un nuevo periodo</a>
               </li>
               <li>
                 <a href="personas.php">Personas</a>
@@ -173,6 +172,7 @@ $areas=$conexion->query($consulta);
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+            <input type="hidden" name="id_indicador" value="<?php echo $id_indicador; ?>">
             <div class="modal-body">
               <form class="" action="Acciones/nuevoIndicador.php" method="GET">
                 <div class="form-group">
@@ -180,10 +180,10 @@ $areas=$conexion->query($consulta);
                   <input type="text" name="Indicador" value="" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label for="pilar">Responsable:</label><br>
+                  <label for="pilar">Area:</label><br>
                   <select class="form-control" name="areasIndicadores">
                     <?php
-                    $resa = mysqli_query($conexion,"SELECT * FROM areas ");
+                    $resa = mysqli_query($conexion,"SELECT * FROM areas ORDER BY area");
                     while ($rowa = mysqli_fetch_array($resa)) {
                       ?>
                       <option value="<?php echo $rowa["id_areas"]; ?>"><?php echo $rowa ["area"];?></option>

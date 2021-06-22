@@ -1,10 +1,11 @@
 <?php
 $id = $_GET['no'];
 $ar = $_GET['ar'];
+$año = $_GET['año'];
 session_start();
 include_once '../includes/db2.php';
 
-$consulta = "SELECT * FROM indicadores WHERE id_area = '$id';";
+$consulta = "SELECT * FROM indicadores WHERE id_area = '$id' AND FechaCreacion = '$año' ;";
 $areas=$conexion->query($consulta);
 ?>
 <!DOCTYPE html>
@@ -25,20 +26,25 @@ $areas=$conexion->query($consulta);
     <!-- <a href="#default" class="logo"> <img src="../img/si1.jpeg" alt=""> </a> -->
     <div class="header-right">
       <a href="menu.php">Inicio</a>
-      <a href="../../includes/logout.php">Cerrar Sesión</a>
+      <a href=MisAreas/MisIndicadores.php>Mis Indicadores</a>
+      <a href="informacion.php" class="text"><?php echo $_SESSION['nombre']; ?></a>
+      <a href="../includes/logout.php">Cerrar Sesión</a>
     </div>
   </div>
 
-  <h1 align="center"><?php echo $ar;?></h1>
+  <h1 align="center"><?php echo $ar," " ,$año;?></h1>
 
 
 
   <div class="container-fluid">
+
     <div class="row row-cols-2">
+
 
       <!-- Inico Navbar -->
 
       <div class="col-3">
+
         <nav class="menu">
           <input type="checkbox" href="#" name="expandmenu" id="expandmenu" class="expandmenu">
           <label class="expandmenu-button" for="expandmenu">
@@ -46,22 +52,39 @@ $areas=$conexion->query($consulta);
             <span class="lines sec-line"></span>
             <span class="lines third-line"></span>
           </label>
-          <a href="Personas.php" class="menu-item col1" title="Personas"><i class="fas fa-user-friends"></i></a>
-          <a href="Planeta.php" class="menu-item col2"><i class="fas fa-globe-americas" title="Planeta"></i></a>
-          <a href="Prosperidad.php" class="menu-item col3"><i class="fas fa-hand-holding-usd" title="Prosperidad"></i></i></a>
-          <a href="Paz.php" class="menu-item col4"><i class="fas fa-dove" title="Paz"></i></a>
-          <a href="Alianzas.php" class="menu-item col5"><i class="fas fa-handshake" title="Alianzas"></i></a>
-          <a href="DatosGenerales.php" class="menu-item col6"><i class="fas fa-school" title="Datos Generales"></i></a>
+          <a href="Personas.php?año=<?php echo Date("Y"); ?>" class="menu-item col1" title="Personas"><i class="fas fa-user-friends"></i></a>
+          <a href="Planeta.php?año=<?php echo Date("Y"); ?>" class="menu-item col2"><i class="fas fa-globe-americas" title="Planeta"></i></a>
+          <a href="Prosperidad.php?año=<?php echo Date("Y"); ?>" class="menu-item col3"><i class="fas fa-hand-holding-usd" title="Prosperidad"></i></i></a>
+          <a href="Paz.php?año=<?php echo Date("Y"); ?>" class="menu-item col4"><i class="fas fa-dove" title="Paz"></i></a>
+          <a href="Alianzas.php?año=<?php echo Date("Y"); ?>" class="menu-item col5"><i class="fas fa-handshake" title="Alianzas"></i></a>
+          <a href="DatosGenerales.php?año=<?php echo Date("Y"); ?>" class="menu-item col6"><i class="fas fa-school" title="Datos Generales"></i></a>
         </nav>
 
       </div>
 
       <!-- Final Navbar -->
       <div class="col-8">
-        <button align="center" class="btn-primary" type="button" name="button">Sector Académico  </button>
-        <button class="btn-secondary" type="button" name="button">Sector Público </button>
-        <button class="btn-warning" type="button" name="button">Sector Privado</button>
-        <button class="btn-info" type="button" name="button">Sector de la Sociedad Civil </button> <br><br>
+        <form class="form-group" action="Indicadores.php" method="get">
+          <div class="form-group mb-2">
+            <input type="hidden" name="no" value="<?php echo $id; ?>">
+            <input type="hidden" name="ar" value="<?php echo $ar; ?>">
+            <select class="form-control" name="año">
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
+              <option value="2028">2028</option>
+              <option value="2029">2029</option>
+              <option value="2030">2030</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-info mb-2 form-control">Buscar</button>
+        </form>
         <!-- Inicio Tabla -->
         <table class="table">
           <thead style="text-align: center">

@@ -25,25 +25,25 @@ $id_indicador = $_GET['id_indicador'];
           <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pilares</a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
             <li>
-                <a href="pilares/añadirPilares.php">Generar un nuevo periodo</a>
+                <a href="../añadirPilares.php?id=1&año_ref=<?php echo Date("Y"); ?>">Generar un nuevo periodo</a>
             </li>
             <li>
-                <a href="pilares/personas.php">Personas</a>
+                <a href="../personas.php">Personas</a>
             </li>
             <li>
-                <a href="pilares/planeta.php">Planeta</a>
+                <a href="../planet.php">Planeta</a>
             </li>
             <li>
-                <a href="pilares/planeta.php">Prosperidad</a>
+                <a href="../prosperidad.php">Prosperidad</a>
             </li>
             <li>
-                <a href="pilares/paz.php">Paz</a>
+                <a href="../paz.php">Paz</a>
             </li>
             <li>
-                <a href="pilares/alianzas.php">Alianzas</a>
+                <a href="../alianzas.php">Alianzas</a>
             </li>
             <li>
-                <a href="pilares/datosGenerales.php">Datos Generales</a>
+                <a href="../datosGenerales.php">Datos Generales</a>
             </li>
           </ul>
         </li>
@@ -52,10 +52,10 @@ $id_indicador = $_GET['id_indicador'];
           <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuarios</a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
             <li>
-                <a href="usuarios/nuevosUsuarios.php">Añadir Usuarios</a>
+                <a href="../../usuarios/nuevosUsuarios.php">Añadir Usuarios</a>
             </li>
             <li>
-                <a href="usuarios/verUsuarios.php">Ver Usuarios</a>
+                <a href="../../usuarios/verUsuarios.php">Ver Usuarios</a>
             </li>
           </ul>
         </li>

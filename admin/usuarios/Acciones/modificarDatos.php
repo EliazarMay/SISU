@@ -7,6 +7,7 @@ $tipo_de_usuario = $_GET['tipo_de_usuario'];
 $estatus = $_GET['estatus'];
 $contraseña = $_GET['contraseña'];
 $confirmarContraseña = $_GET['confirmarContraseña'];
+$puesto = $_GET['puesto'];
 // echo $nombreCompleto."||".$username."||".$tipo_de_usuario."||".$estatus."||".$contraseña."||".$confirmarContraseña."||".$id;
 
 if ($contraseña != $confirmarContraseña) {
@@ -21,6 +22,7 @@ if ($contraseña != $confirmarContraseña) {
                      username = '".$username."',
                      tipo_de_usuario = '".$tipo_de_usuario."',
                      estatus = '".$estatus."',
+                     puesto = '".$puesto."',
                      password = '".$confirmarContraseña."' WHERE id='".$id."' ";
   $conexion->query($sentencia) or die ("Error al modificar datos comunicate con el Administrador: ".mysqli_error());
   echo '<script>';

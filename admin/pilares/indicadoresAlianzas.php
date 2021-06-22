@@ -35,7 +35,7 @@ $areas=$conexion->query($consulta);
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pilares</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
               <li>
-                <a href="añadirPilares.php?id=0">Generar un nuevo periodo</a>
+                <a href="añadirPilares.php?id=1&año_ref=<?php echo Date("Y"); ?>">Generar un nuevo periodo</a>
               </li>
               <li>
                 <a href="personas.php">Personas</a>

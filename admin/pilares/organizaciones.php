@@ -30,7 +30,7 @@ $areas=$conexion->query($consulta);
 	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pilares</a>
 	            <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
-                    <a href="../pilares/añadirPilares.php?id=0">Generar un nuevo periodo</a>
+                    <a href="../pilares/añadirPilares.php?id=1&año_ref=<?php echo Date("Y"); ?>">Generar un nuevo periodo</a>
                 </li>
                 <li>
                     <a href="../pilares/personas.php">Personas</a>
@@ -75,7 +75,7 @@ $areas=$conexion->query($consulta);
 
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5">
-        <a href="../includes/logout.php">Cerrar Sesión</a>
+        <a href="../../includes/logout.php">Cerrar Sesión</a>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
 

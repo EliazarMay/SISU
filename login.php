@@ -1,13 +1,13 @@
 <?php
 session_start();
-$matricula = $_POST['username'];
-$password = $_POST['password'];
+include 'includes/db2.php';
+$matricula = $conexion->real_escape_string($_POST['username']);
+$password = $conexion->real_escape_string($_POST['password']);
 
 $consulta=ValidarUsuario($matricula,$password);
 
 	function ValidarUsuario ($matricula, $password){
-	include 'includes/db2.php';
-
+		include 'includes/db2.php';
 		$sentencia="SELECT *
 					FROM usuarios
 					WHERE username='".$matricula."'

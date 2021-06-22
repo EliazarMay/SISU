@@ -17,13 +17,13 @@
 
 				<div class="p-4 pt-5">
 
-		  		<a href="index.html" class="img logo rounded-circle mb-5" style="background-image: url(images/logo.jpg);"></a>
+		  		<a href="" class="img logo rounded-circle mb-5" style="background-image: url(images/logo.jpg);"></a>
 	        <ul class="list-unstyled components mb-5">
 	          <li class="active">
 	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pilares</a>
 	            <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
-                    <a href="pilares/añadirPilares.php?id=0">Generar un nuevo periodo</a>
+                    <a href="pilares/añadirPilares.php?id=1&año_ref=<?php echo Date("Y"); ?>">Generar un nuevo periodo</a>
                 </li>
                 <li>
                     <a href="pilares/personas.php">Personas</a>

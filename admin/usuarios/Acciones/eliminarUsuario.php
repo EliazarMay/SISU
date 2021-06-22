@@ -4,8 +4,8 @@
 
 	function EliminarUsuario($id){
 		include '../../../includes/db2.php';
-		$sentencia="DELETE FROM usuarios WHERE id='".$id."' ";
-		$conexion->query($sentencia) or die ("Error al eliminar usuario: ".mysqli_error());
+		$sentencia="DELETE FROM usuarios WHERE id = '".$id."' ";
+		$conexion->query($sentencia) or die ("Error al eliminar usuario: ".mysqli_error($conexion));
 	}
 
 	echo '<script>';

@@ -41,12 +41,12 @@ session_start();
 				<span class="lines sec-line"></span>
 				<span class="lines third-line"></span>
 			</label>
-			<a href="Personas.php" class="menu-item col1" title="Personas"><i class="fas fa-user-friends"></i></a>
-			<a href="Planeta.php" class="menu-item col2"><i class="fas fa-globe-americas" title="Planeta"></i></a>
-			<a href="Prosperidad.php" class="menu-item col3"><i class="fas fa-hand-holding-usd" title="Prosperidad"></i></i></a>
-			<a href="Paz.php" class="menu-item col4"><i class="fas fa-dove" title="Paz"></i></a>
-			<a href="Alianzas.php" class="menu-item col5"><i class="fas fa-handshake" title="Alianzas"></i></a>
-			<a href="DatosGenerales.php" class="menu-item col6"><i class="fas fa-school" title="Datos Generales"></i></a>
+			<a href="Personas.php?año=<?php echo date("Y"); ?>" class="menu-item col1" title="Personas"><i class="fas fa-user-friends"></i></a>
+			<a href="Planeta.php?año=<?php echo date("Y"); ?>" class="menu-item col2"><i class="fas fa-globe-americas" title="Planeta"></i></a>
+			<a href="Prosperidad.php?año=<?php echo date("Y"); ?>" class="menu-item col3"><i class="fas fa-hand-holding-usd" title="Prosperidad"></i></i></a>
+			<a href="Paz.php?año=<?php echo date("Y"); ?>" class="menu-item col4"><i class="fas fa-dove" title="Paz"></i></a>
+			<a href="Alianzas.php?año=<?php echo date("Y"); ?>" class="menu-item col5"><i class="fas fa-handshake" title="Alianzas"></i></a>
+			<a href="DatosGenerales.php?año=<?php echo date("Y"); ?>" class="menu-item col6"><i class="fas fa-school" title="Datos Generales"></i></a>
 		</nav>
 	</div>
 

@@ -18,11 +18,9 @@ $sentencia="UPDATE areas SET
                    id_pilar = '".$Pilar."',
                    id_usuario = '".$responsable."'
                    WHERE id_areas='".$id."' ";
-
 $conexion->query($sentencia) or die ("Error al modificar datos comunicate con el Administrador: ".mysqli_error());
-
 echo '<script>';
 echo 'alert("Datos actualizados correctamente");';
-echo 'history.go(-1);';
+echo 'window.history.back();';
 echo '</script>';
 ?>
