@@ -1,4 +1,8 @@
 <?php
+session_start();
+  if ($_SESSION['password'] != '1') {
+    header('Location: ../../');
+  }
 $id=$_GET['id_area'];
 $nombreArea=$_GET['nombreArea'];
 $año=$_GET['año'];

@@ -1,4 +1,8 @@
 <?php
+session_start();
+  if ($_SESSION['password'] != '3') {
+    header('Location: ../');
+  }
 $id = $_GET['no'];
 $ar = $_GET['ar'];
 $año = $_GET['año'];

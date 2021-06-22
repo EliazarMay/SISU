@@ -1,4 +1,8 @@
 <?php
+session_start();
+  if ($_SESSION['password'] != '1') {
+    header('Location: ../../');
+  }
 error_reporting(0);
 include '../../includes/db2.php';
 $ide_areas = $_POST['id'];

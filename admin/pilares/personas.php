@@ -1,4 +1,8 @@
 <?php
+session_start();
+  if ($_SESSION['password'] != '1') {
+    header('Location: ../../');
+  }
 include_once '../../includes/db2.php';
 $consulta = "SELECT * FROM areas
 INNER JOIN usuarios ON

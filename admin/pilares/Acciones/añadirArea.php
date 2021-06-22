@@ -1,4 +1,8 @@
 <?php
+session_start();
+  if ($_SESSION['password'] != '1') {
+    header('Location: ../../../');
+  }
 $Area = $_POST["Area"];
 $Año = $_POST["Año"];
 $PeriodoInicial = $_POST["PeriodoInicial"];

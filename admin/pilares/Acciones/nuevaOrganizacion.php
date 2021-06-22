@@ -1,4 +1,8 @@
 <?php
+session_start();
+  if ($_SESSION['password'] != '1') {
+    header('Location: ../../');
+  }
 nuevaOrganizacion($_GET['Organizacion']);
 
 function nuevaOrganizacion($Organizacion){

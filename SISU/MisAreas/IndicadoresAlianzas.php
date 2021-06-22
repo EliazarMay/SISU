@@ -1,5 +1,8 @@
 <?php
 session_start();
+  if ($_SESSION['password'] != '3') {
+    header('Location: ../../');
+  }
 include_once '../../includes/db2.php';
 $nombre = $_SESSION['nombre'];
 $consulta = "SELECT ar.id_areas,ar.area, us.nombre FROM areas ar

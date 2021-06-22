@@ -1,5 +1,9 @@
 
 <?php
+session_start();
+  if ($_SESSION['password'] != '1') {
+    header('Location: ../../');
+  }
 require_once "../../../includes/db2.php";
 
 $sql = "SELECT indicador,periodo_1,periodo_2,periodo_3 from indicadores where id_indicador = '".$_GET['id_indicador']."'";

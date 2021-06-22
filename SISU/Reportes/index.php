@@ -1,4 +1,8 @@
 <?php
+session_start();
+  if ($_SESSION['password'] != '3') {
+    header('Location: ../');
+  }
 include_once '../../includes/db2.php';
 $id = $_GET['no'];
 $consulta = "SELECT indicador, conteo_anual, pil.pilar, ar.area, us.nombre, us.puesto

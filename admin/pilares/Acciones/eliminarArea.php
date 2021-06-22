@@ -9,7 +9,7 @@ if ($Pilar == 1) {
 
 	echo '<script>';
 		echo 'alert("Area Eliminada");';
-		echo 'history.go(-1);';
+		echo 'window.location.href="../personas.php";';
 	echo '</script>';
 } elseif ($Pilar == 2) {
 	$sentencia="DELETE FROM areas WHERE id_areas='".$id."'";
@@ -17,7 +17,7 @@ if ($Pilar == 1) {
 
 	echo '<script>';
 		echo 'alert("Area Eliminada");';
-		echo 'history.go(-1);';
+		echo 'window.location.href="../planet.php";';
 	echo '</script>';
 }elseif ($Pilar == 3) {
 	$sentencia="DELETE FROM areas WHERE id_areas='".$id."'";
@@ -25,7 +25,7 @@ if ($Pilar == 1) {
 
 	echo '<script>';
 		echo 'alert("Area Eliminada");';
-		echo 'history.go(-1);';
+		echo 'window.location.href="../prosperidad.php";';
 	echo '</script>';
 }elseif ($Pilar == 4) {
 	$sentencia="DELETE FROM areas WHERE id_areas='".$id."'";
@@ -33,7 +33,7 @@ if ($Pilar == 1) {
 
 	echo '<script>';
 		echo 'alert("Area Eliminada");';
-		echo 'history.go(-1);';
+		echo 'window.location.href="../paz.php";';
 	echo '</script>';
 }elseif ($Pilar == 5) {
 	$sentencia="DELETE FROM areas WHERE id_areas='".$id."'";
@@ -41,7 +41,7 @@ if ($Pilar == 1) {
 
 	echo '<script>';
 		echo 'alert("Area Eliminada");';
-		echo 'history.go(-1);';
+		echo 'window.location.href="../alianzas.php";';
 	echo '</script>';
 }elseif ($Pilar == 6) {
 	$sentencia="DELETE FROM areas WHERE id_areas='".$id."'";
@@ -49,11 +49,11 @@ if ($Pilar == 1) {
 
 	echo '<script>';
 		echo 'alert("Area Eliminada");';
-		echo 'history.go(-1);';
+		echo 'window.location.href="../datosGenerales.php";';
 	echo '</script>';
 }else {
       echo '<script>';
-      echo 'alert("Error al eliminar Area");';
+      // echo 'alert("Error al eliminar Area");';
       echo 'history.go(-1);';
       echo '</script>';
 }

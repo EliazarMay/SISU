@@ -1,5 +1,8 @@
 <?php
-
+session_start();
+  if ($_SESSION['password'] != '1') {
+    header('Location: ../../../');
+  }
 	NuevoUsuario($_POST['Nombre'], $_POST['Username'], $_POST['Contraseña'], $_POST['Puesto'], $_POST['tipo_Usuario']);
 
 	function NuevoUsuario($Nombre, $Username, $Pass, $Puesto, $tipo_Usuario){

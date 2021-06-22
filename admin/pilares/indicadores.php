@@ -1,5 +1,4 @@
 <?php
-$id_indicador = $_GET['id'];
 $id = $_GET['no'];
 $ar = $_GET['ar'];
 session_start();
@@ -172,7 +171,6 @@ $areas=$conexion->query($consulta);
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <input type="hidden" name="id_indicador" value="<?php echo $id_indicador; ?>">
             <div class="modal-body">
               <form class="" action="Acciones/nuevoIndicador.php" method="GET">
                 <div class="form-group">

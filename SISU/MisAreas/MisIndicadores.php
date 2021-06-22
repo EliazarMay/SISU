@@ -1,5 +1,8 @@
 <?php
 session_start();
+  if ($_SESSION['password'] != '3') {
+    header('Location: ../');
+  }
 include_once '../../includes/db2.php';
 
 

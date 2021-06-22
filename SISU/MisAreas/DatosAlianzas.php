@@ -1,4 +1,8 @@
 <?php
+session_start();
+  if ($_SESSION['password'] != '3') {
+    header('Location: ../../');
+  }
 include '../../includes/db2.php';
 session_start();
 $id = $_GET['id_area'];

@@ -1,5 +1,8 @@
 <?php
 session_start();
+  if ($_SESSION['password'] != '3') {
+    header('Location: ../');
+  }
 ?>
 <!DOCTYPE html>
 <html>

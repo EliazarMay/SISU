@@ -1,4 +1,8 @@
 <?php
+session_start();
+  if ($_SESSION['password'] != '1') {
+    header('Location: ../../');
+  }
 
 	nuevoIndicador($_GET['Indicador'],$_GET['areasIndicadores']);
 

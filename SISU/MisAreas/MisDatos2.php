@@ -1,6 +1,9 @@
 <?php
 include '../../includes/db2.php';
 session_start();
+  if ($_SESSION['password'] != '3') {
+    header('Location: ../');
+  }
 $nombre = $_GET['id_area'];
 $alumnos="SELECT ind.id_indicador, ind.indicador, ind.periodo_1, ind.periodo_2, ind.periodo_3, ind.conteo_anual, ind.enlace
 FROM indicadores ind
