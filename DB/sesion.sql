@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-06-2021 a las 07:08:25
+-- Tiempo de generación: 22-06-2021 a las 15:35:21
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 7.3.27
 
@@ -26,9 +26,6 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `areas`
 --
--- Creación: 04-05-2021 a las 13:37:07
--- Última actualización: 21-06-2021 a las 07:42:08
---
 
 CREATE TABLE `areas` (
   `id_areas` int(11) NOT NULL,
@@ -44,12 +41,6 @@ CREATE TABLE `areas` (
   `id_usuario5` varchar(50) NOT NULL DEFAULT '',
   `id_usuario6` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELACIONES PARA LA TABLA `areas`:
---   `id_usuario`
---       `usuarios` -> `id`
---
 
 --
 -- Volcado de datos para la tabla `areas`
@@ -78,7 +69,6 @@ INSERT INTO `areas` (`id_areas`, `area`, `año`, `periodo_inicial`, `periodo_fin
 (49, 'Producción Académica y Cuerpos Académicos', 2021, 'Enero', 'Diciembre', 6, 53, NULL, '0', '0', '0', NULL),
 (50, 'Biblioteca ', 2021, 'Enero', 'Diciembre', 6, 113, NULL, '0', '0', '0', NULL),
 (110, 'Evaluación al desempeño docente', 2021, 'Enero', 'Enero', 1, 109, NULL, '0', '0', '0', NULL),
-(133, 'test', 2021, 'Enero', 'Diciembre', 0, 1, '', '', '', '', NULL),
 (134, 'Comité de Ética y Conflictos de Interés', 2021, 'Enero', 'Diciembre', 4, 112, NULL, '', '', '', NULL),
 (135, 'Nodos de Impulso a la Economía Social y Solidaria', 2021, 'Enero', 'Diciembre', 5, 103, NULL, '', '', '', NULL),
 (136, 'Ludoteca', 2021, 'Enero', 'Diciembre', 1, 8, NULL, '', '', '', NULL),
@@ -89,18 +79,12 @@ INSERT INTO `areas` (`id_areas`, `area`, `año`, `periodo_inicial`, `periodo_fin
 --
 -- Estructura de tabla para la tabla `años_periodos`
 --
--- Creación: 03-03-2021 a las 06:02:44
---
 
 CREATE TABLE `años_periodos` (
   `id_año` int(11) NOT NULL,
   `año` year(4) DEFAULT 2000,
   `id_periodo` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELACIONES PARA LA TABLA `años_periodos`:
---
 
 --
 -- Volcado de datos para la tabla `años_periodos`
@@ -133,16 +117,10 @@ INSERT INTO `años_periodos` (`id_año`, `año`, `id_periodo`) VALUES
 --
 -- Estructura de tabla para la tabla `contador`
 --
--- Creación: 26-04-2021 a las 22:04:04
---
 
 CREATE TABLE `contador` (
   `id_contador` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELACIONES PARA LA TABLA `contador`:
---
 
 --
 -- Volcado de datos para la tabla `contador`
@@ -161,17 +139,11 @@ INSERT INTO `contador` (`id_contador`) VALUES
 --
 -- Estructura de tabla para la tabla `esquemas_colaboracion`
 --
--- Creación: 16-04-2021 a las 22:55:31
---
 
 CREATE TABLE `esquemas_colaboracion` (
   `id_esquema` int(11) NOT NULL,
   `esquema` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELACIONES PARA LA TABLA `esquemas_colaboracion`:
---
 
 --
 -- Volcado de datos para la tabla `esquemas_colaboracion`
@@ -195,25 +167,18 @@ INSERT INTO `esquemas_colaboracion` (`id_esquema`, `esquema`) VALUES
 (15, 'Préstamo de Instalaciones'),
 (16, 'Proyecto de Investigación Académica'),
 (17, 'Sede para Evento'),
-(18, 'Soporte Técnico'),
-(27, 'test');
+(18, 'Soporte Técnico');
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `estatus_indicadores`
 --
--- Creación: 03-03-2021 a las 06:02:44
---
 
 CREATE TABLE `estatus_indicadores` (
   `id_estatus_indicador` int(11) NOT NULL,
   `estatus_indicador` varchar(50) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELACIONES PARA LA TABLA `estatus_indicadores`:
---
 
 --
 -- Volcado de datos para la tabla `estatus_indicadores`
@@ -228,13 +193,10 @@ INSERT INTO `estatus_indicadores` (`id_estatus_indicador`, `estatus_indicador`) 
 --
 -- Estructura de tabla para la tabla `indicadores`
 --
--- Creación: 14-06-2021 a las 06:59:53
--- Última actualización: 21-06-2021 a las 13:29:49
---
 
 CREATE TABLE `indicadores` (
   `id_indicador` int(11) NOT NULL,
-  `numero` int(11) NOT NULL,
+  `numero` int(11) DEFAULT NULL,
   `indicador` varchar(255) NOT NULL,
   `periodo_1` int(11) NOT NULL,
   `periodo_2` int(11) NOT NULL,
@@ -251,15 +213,11 @@ CREATE TABLE `indicadores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- RELACIONES PARA LA TABLA `indicadores`:
---
-
---
 -- Volcado de datos para la tabla `indicadores`
 --
 
 INSERT INTO `indicadores` (`id_indicador`, `numero`, `indicador`, `periodo_1`, `periodo_2`, `periodo_3`, `conteo_anual`, `enlace`, `id_area`, `id_estatus_indicador`, `FechaCreacion`, `sector`, `tipo_colaboracion`, `informacion`, `tipo_indicador`) VALUES
-(1, 1, 'Número de estudiantes matriculados en Licenciaturas', 0, 0, 0, 0, '', 1, 1, 2021, NULL, NULL, NULL, 'Numerico'),
+(1, 1, 'Número de estudiantes matriculados en Licenciaturas', 0, 0, 0, 0, '', 1, 1, 2021, '', '', '', 'Numerico'),
 (2, 2, 'Número de estudiantes matriculados en Gastronomía', 0, 0, 0, 0, '', 1, 1, 2021, NULL, NULL, NULL, NULL),
 (3, 3, 'Número de estudiantes matriculados en Turismo Sustentable y Gestión Hotelera', 0, 0, 0, 0, '', 1, 1, 2021, NULL, NULL, NULL, NULL),
 (4, 4, 'Número de estudiantes matriculados en Turismo Alternativo y Gestión del Patrimonio', 0, 0, 0, 0, '', 1, 1, 2021, NULL, NULL, NULL, NULL),
@@ -304,11 +262,11 @@ INSERT INTO `indicadores` (`id_indicador`, `numero`, `indicador`, `periodo_1`, `
 (43, 43, 'Número de egresados en Maestría Internacional en Gastronomía', 0, 0, 0, 0, '', 1, 1, 2021, NULL, NULL, NULL, NULL),
 (44, 44, 'Número de egresados en Maestría en Visualización de la Información', 0, 0, 0, 0, '', 1, 1, 2021, NULL, NULL, NULL, NULL),
 (45, 45, 'Número de egresados títulados en Maestrías', 0, 0, 0, 0, '', 1, 1, 2021, NULL, NULL, NULL, NULL),
-(46, 1, 'Número de participantes inscritos en programas de educación continua', 50, 50, 50, 0, '', 2, 1, 2021, NULL, NULL, NULL, NULL),
-(47, 2, 'Número de diplomados, talleres y cursos ofertados en educación continua', 10, 10, 10, 0, '', 2, 1, 2021, NULL, NULL, NULL, NULL),
-(48, 3, 'Número de participantes de educación continua en diplomados', 10, 10, 10, 0, '', 2, 1, 2021, NULL, NULL, NULL, NULL),
-(49, 4, 'Número de participantes de educación continua en talleres', 5, 5, 5, 0, '', 2, 1, 2021, NULL, NULL, NULL, NULL),
-(50, 5, 'Número de participantes de educación continua en cursos', 1, 0, 0, 0, '', 2, 1, 2021, NULL, NULL, NULL, NULL),
+(46, 1, 'Número de participantes inscritos en programas de educación continua', 0, 0, 0, 0, '', 2, 1, 2021, '', '', '', NULL),
+(47, 2, 'Número de diplomados, talleres y cursos ofertados en educación continua', 0, 0, 0, 0, '', 2, 1, 2021, '', '', '', NULL),
+(48, 3, 'Número de participantes de educación continua en diplomados', 0, 0, 0, 0, '', 2, 1, 2021, '', '', '', NULL),
+(49, 4, 'Número de participantes de educación continua en talleres', 0, 0, 0, 0, '', 2, 1, 2021, '', '', '', NULL),
+(50, 5, 'Número de participantes de educación continua en cursos', 0, 0, 0, 0, '', 2, 1, 2021, '', '', '', NULL),
 (51, 1, 'Número de estudiantes y participantes externos inscritos en todos los programas de idiomas', 0, 0, 0, 0, NULL, 3, 1, 2021, NULL, NULL, NULL, NULL),
 (52, 2, 'Número de estudiantes y participantes externos inscritos en el programa del idioma inglés', 0, 0, 0, 0, NULL, 3, 1, 2021, NULL, NULL, NULL, NULL),
 (53, 3, 'Número de estudiantes y participantes externos inscritos en el programa del idioma chino', 0, 0, 0, 0, NULL, 3, 1, 2021, NULL, NULL, NULL, NULL),
@@ -549,10 +507,10 @@ INSERT INTO `indicadores` (`id_indicador`, `numero`, `indicador`, `periodo_1`, `
 (288, 10, 'Número de becas otorgadas de Manutención Alumnos de 2do. y 3er. año 2019 - SUR-SURESTE', 0, 0, 0, 0, NULL, 27, 1, 2021, NULL, NULL, NULL, NULL),
 (289, 11, 'Número de becas otorgadas de Madres Mexicanas Jefas de Familia - CONACYT', 0, 0, 0, 0, NULL, 27, 1, 2021, NULL, NULL, NULL, NULL),
 (290, 12, 'Número de becas otorgadas del Programa de Estancias de Investigación COQCYT 2019', 0, 0, 0, 0, NULL, 27, 1, 2021, NULL, NULL, NULL, NULL),
-(414, 1, 'Número de mingitorios secos', 1, 0, 0, 0, '', 21, 1, 2021, NULL, NULL, NULL, NULL),
-(415, 2, 'Número de metros cúbicos de agua consumidos', 1, 1, 1, 0, '', 21, 1, 2021, NULL, NULL, NULL, NULL),
-(416, 3, 'Número de litros de agua utilizados por persona', 1, 1, 1, 0, '', 21, 1, 2021, NULL, NULL, NULL, NULL),
-(417, 4, 'Número de kilogramos de residuos orgánicos e inorgánicos recuperados', 1, 1, 1, 3, '', 21, 1, 2021, NULL, NULL, NULL, NULL),
+(414, 1, 'Número de mingitorios secos', 0, 0, 0, 0, '', 21, 1, 2021, '', '', '', NULL),
+(415, 2, 'Número de metros cúbicos de agua consumidos', 0, 0, 0, 0, '', 21, 1, 2021, '', '', '', NULL),
+(416, 3, 'Número de litros de agua utilizados por persona', 0, 0, 0, 0, '', 21, 1, 2021, '', '', '', NULL),
+(417, 4, 'Número de kilogramos de residuos orgánicos e inorgánicos recuperados', 0, 0, 0, 0, '', 21, 1, 2021, '', '', '', NULL),
 (418, 5, 'Número de kilogramos de residuos orgánicos recuperados para composta', 0, 0, 0, 0, '', 21, 1, 2021, NULL, NULL, NULL, NULL),
 (419, 6, 'Número de kilogramos de playo recuperados', 0, 0, 0, 0, '', 21, 1, 2021, NULL, NULL, NULL, NULL),
 (420, 7, 'Número de kilogramos de vidrio recuperados', 0, 0, 0, 0, '', 21, 1, 2021, NULL, NULL, NULL, NULL),
@@ -641,9 +599,9 @@ INSERT INTO `indicadores` (`id_indicador`, `numero`, `indicador`, `periodo_1`, `
 (538, 24, 'Número de tiendas de souvenirs', 0, 0, 0, 0, '', 30, 1, 2021, NULL, NULL, NULL, NULL),
 (539, 25, 'Número de cafeterías', 0, 0, 0, 0, '', 30, 1, 2021, NULL, NULL, NULL, NULL),
 (540, 26, 'Número de aulas de muestra spa', 0, 0, 0, 0, '', 30, 1, 2021, NULL, NULL, NULL, NULL),
-(541, 27, 'Número de cuartos muestra hotel', 0, 0, 0, 0, '', 30, 1, 2021, NULL, NULL, NULL, NULL);
+(541, 27, 'Número de cuartos muestra hotel', 0, 0, 0, 0, '', 30, 1, 2021, NULL, NULL, NULL, NULL),
+(542, 28, 'Número de paredes de escalada y de rappel', 0, 0, 0, 0, '', 30, 1, 2021, NULL, NULL, NULL, NULL);
 INSERT INTO `indicadores` (`id_indicador`, `numero`, `indicador`, `periodo_1`, `periodo_2`, `periodo_3`, `conteo_anual`, `enlace`, `id_area`, `id_estatus_indicador`, `FechaCreacion`, `sector`, `tipo_colaboracion`, `informacion`, `tipo_indicador`) VALUES
-(542, 28, 'Número de paredes de escalada y de rappel', 0, 0, 0, 0, '', 30, 1, 2021, NULL, NULL, NULL, NULL),
 (543, 29, 'Número de cocinas', 0, 0, 0, 0, '', 30, 1, 2021, NULL, NULL, NULL, NULL),
 (544, 30, 'Número de almacén de plaqué', 0, 0, 0, 0, '', 30, 1, 2021, NULL, NULL, NULL, NULL),
 (545, 31, 'Número de estacionamientos', 0, 0, 0, 0, '', 30, 1, 2021, NULL, NULL, NULL, NULL),
@@ -864,14 +822,26 @@ INSERT INTO `indicadores` (`id_indicador`, `numero`, `indicador`, `periodo_1`, `
 (866, 0, 'Número de colaboradores que respondieron la Encuesta Anual de Clima Laboral', 0, 0, 0, 0, NULL, 137, 0, 2021, NULL, NULL, NULL, NULL),
 (867, 0, 'Listado de temas que integran la Encuesta Anual de Clima Laboral', 0, 0, 0, 0, NULL, 137, 0, 2021, NULL, NULL, NULL, NULL),
 (868, 0, 'Número de estudiantes que respondieron la Encuesta de Satisfacción y Expectativas del Estudiantado', 0, 0, 0, 0, NULL, 137, 0, 2021, NULL, NULL, NULL, NULL),
-(869, 0, 'Listado de temas que integran la Encuesta de Satisfacción y Expectativas del Estudiantado', 0, 0, 0, 0, NULL, 137, 0, 2021, NULL, NULL, NULL, NULL);
+(869, 0, 'Listado de temas que integran la Encuesta de Satisfacción y Expectativas del Estudiantado', 0, 0, 0, 0, NULL, 137, 0, 2021, NULL, NULL, NULL, NULL),
+(916, 0, 'Número de estudiantes y participantes externos inscritos en todos los programas de idiomas', 0, 0, 0, 0, NULL, 3, 0, 2022, NULL, NULL, NULL, NULL),
+(917, 0, 'Número de estudiantes y participantes externos inscritos en el programa del idioma inglés', 0, 0, 0, 0, NULL, 3, 0, 2022, NULL, NULL, NULL, NULL),
+(918, 0, 'Número de estudiantes y participantes externos inscritos en el programa del idioma chino', 0, 0, 0, 0, NULL, 3, 0, 2022, NULL, NULL, NULL, NULL),
+(919, 0, 'Número de estudiantes y participantes externos inscritos en el programa del idioma portugués', 0, 0, 0, 0, NULL, 3, 0, 2022, NULL, NULL, NULL, NULL),
+(920, 0, 'Número de estudiantes y participantes externos inscritos en el programa del idioma ruso', 0, 0, 0, 0, NULL, 3, 0, 2022, NULL, NULL, NULL, NULL),
+(921, 0, 'Número de estudiantes y participantes externos inscritos en el programa del idioma alemán', 0, 0, 0, 0, NULL, 3, 0, 2022, NULL, NULL, NULL, NULL),
+(922, 0, 'Número de estudiantes y participantes externos inscritos en el programa del idioma italiano', 0, 0, 0, 0, NULL, 3, 0, 2022, NULL, NULL, NULL, NULL),
+(923, 0, 'Número de estudiantes y participantes externos inscritos en el programa del idioma español', 0, 0, 0, 0, NULL, 3, 0, 2022, NULL, NULL, NULL, NULL),
+(924, 0, 'Número de estudiantes y participantes externos inscritos en el programa del idioma japonés', 0, 0, 0, 0, NULL, 3, 0, 2022, NULL, NULL, NULL, NULL),
+(925, 0, 'Número de estudiantes y participantes externos inscritos en curso del idioma francés', 0, 0, 0, 0, NULL, 3, 0, 2022, NULL, NULL, NULL, NULL),
+(926, 0, 'Número de estudiantes y participantes externos inscritos en el Diplomado de Francés en los niveles DELF A1, A2, B1 y B2', 0, 0, 0, 0, NULL, 3, 0, 2022, NULL, NULL, NULL, NULL),
+(928, 0, 'Número de estudiantes y participantes externos certificados bajo el International English Language Testing System (IELTS)', 0, 0, 0, 0, NULL, 3, 0, 2022, NULL, NULL, NULL, NULL),
+(929, 0, 'Número de estudiantes y participantes externos certificados bajo el Hanyu Shuiping Kaoshi en los niveles Chino Introducción, Chino 1 y Chino 2.', 0, 0, 0, 0, NULL, 3, 0, 2022, NULL, NULL, NULL, NULL),
+(930, 0, 'Número de estudiantes usuarios del Self Access Center', 0, 0, 0, 0, NULL, 3, 0, 2022, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `periodo`
---
--- Creación: 03-03-2021 a las 06:02:44
 --
 
 CREATE TABLE `periodo` (
@@ -880,10 +850,6 @@ CREATE TABLE `periodo` (
   `periodo_2` varchar(50) DEFAULT NULL,
   `periodo_3` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELACIONES PARA LA TABLA `periodo`:
---
 
 --
 -- Volcado de datos para la tabla `periodo`
@@ -897,17 +863,11 @@ INSERT INTO `periodo` (`id_periodo`, `periodo_1`, `periodo_2`, `periodo_3`) VALU
 --
 -- Estructura de tabla para la tabla `pilares`
 --
--- Creación: 03-03-2021 a las 06:02:44
---
 
 CREATE TABLE `pilares` (
   `id_pilar` int(11) NOT NULL,
   `pilar` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELACIONES PARA LA TABLA `pilares`:
---
 
 --
 -- Volcado de datos para la tabla `pilares`
@@ -926,8 +886,6 @@ INSERT INTO `pilares` (`id_pilar`, `pilar`) VALUES
 --
 -- Estructura de tabla para la tabla `posts`
 --
--- Creación: 03-03-2021 a las 06:02:44
---
 
 CREATE TABLE `posts` (
   `id` int(11) NOT NULL,
@@ -936,10 +894,6 @@ CREATE TABLE `posts` (
   `content` text COLLATE utf8_spanish_ci NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- RELACIONES PARA LA TABLA `posts`:
---
 
 --
 -- Volcado de datos para la tabla `posts`
@@ -954,17 +908,11 @@ INSERT INTO `posts` (`id`, `title`, `status`, `content`, `user_id`) VALUES
 --
 -- Estructura de tabla para la tabla `tipos_de_usuarios`
 --
--- Creación: 03-03-2021 a las 06:02:44
---
 
 CREATE TABLE `tipos_de_usuarios` (
   `id_tipo_de_usuario` int(11) NOT NULL,
   `tipo_de_usuario` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELACIONES PARA LA TABLA `tipos_de_usuarios`:
---
 
 --
 -- Volcado de datos para la tabla `tipos_de_usuarios`
@@ -980,9 +928,6 @@ INSERT INTO `tipos_de_usuarios` (`id_tipo_de_usuario`, `tipo_de_usuario`) VALUES
 --
 -- Estructura de tabla para la tabla `usuarios`
 --
--- Creación: 03-03-2021 a las 06:02:44
--- Última actualización: 21-06-2021 a las 07:26:06
---
 
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
@@ -994,12 +939,6 @@ CREATE TABLE `usuarios` (
   `puesto` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
   `estatus` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- RELACIONES PARA LA TABLA `usuarios`:
---   `tipo_de_usuario`
---       `tipos_de_usuarios` -> `id_tipo_de_usuario`
---
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -1117,7 +1056,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `areas`
 --
 ALTER TABLE `areas`
-  MODIFY `id_areas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
+  MODIFY `id_areas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
 -- AUTO_INCREMENT de la tabla `años_periodos`
@@ -1141,7 +1080,7 @@ ALTER TABLE `estatus_indicadores`
 -- AUTO_INCREMENT de la tabla `indicadores`
 --
 ALTER TABLE `indicadores`
-  MODIFY `id_indicador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=916;
+  MODIFY `id_indicador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=931;
 
 --
 -- AUTO_INCREMENT de la tabla `periodo`
@@ -1188,60 +1127,6 @@ ALTER TABLE `areas`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `Contraint Name` FOREIGN KEY (`tipo_de_usuario`) REFERENCES `tipos_de_usuarios` (`id_tipo_de_usuario`);
-
-
---
--- Metadatos
---
-USE `phpmyadmin`;
-
---
--- Metadatos para la tabla areas
---
-
---
--- Metadatos para la tabla años_periodos
---
-
---
--- Metadatos para la tabla contador
---
-
---
--- Metadatos para la tabla esquemas_colaboracion
---
-
---
--- Metadatos para la tabla estatus_indicadores
---
-
---
--- Metadatos para la tabla indicadores
---
-
---
--- Metadatos para la tabla periodo
---
-
---
--- Metadatos para la tabla pilares
---
-
---
--- Metadatos para la tabla posts
---
-
---
--- Metadatos para la tabla tipos_de_usuarios
---
-
---
--- Metadatos para la tabla usuarios
---
-
---
--- Metadatos para la base de datos sesion
---
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

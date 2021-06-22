@@ -33,7 +33,7 @@ session_start();
    width: 100%;
    color: black;
    text-align: center;">
-	  <h6 style="font-size: 1.5rem;">Version 1.3-beta 26/04/2021</h6>
+	  <!-- <h6 style="font-size: 1.5rem;">Version 1.6-beta 22/06/2021</h6> -->
 	</div>
 
 	<div class="container-left">
