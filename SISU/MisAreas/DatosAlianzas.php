@@ -4,7 +4,6 @@ session_start();
     header('Location: ../../');
   }
 include '../../includes/db2.php';
-session_start();
 $id = $_GET['id_area'];
 $sec = $_GET['sec'];
 $consulta = "SELECT * FROM indicadores WHERE id_area = '$id' AND sector = '$sec';";

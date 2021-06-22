@@ -10,7 +10,7 @@ $areas=$conexion->query($consulta);
 <!doctype html>
 <html lang="en">
 <head>
-  <title>Paz</title>
+  <title>Organizaciones</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -28,7 +28,7 @@ $areas=$conexion->query($consulta);
 
 				<div class="p-4 pt-5">
 
-		  		<a href="../index.html" class="img logo rounded-circle mb-5" style="background-image: url(../images/logo.jpg);"></a>
+		  		<a href="../index.php" class="img logo rounded-circle mb-5" style="background-image: url(../images/logo.jpg);"></a>
 	        <ul class="list-unstyled components mb-5">
 	          <li class="active">
 	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pilares</a>
@@ -108,6 +108,8 @@ $areas=$conexion->query($consulta);
               $conteo = 0;
                 foreach ($areas as $area) {
                   $conteo = $conteo + 1;
+                  $data = $area['id_esquema']."||".
+                  $area['esquema'];
               ?>
               <tr>
 
@@ -166,7 +168,38 @@ $areas=$conexion->query($consulta);
 
 
 		</div>
+
+    <div class="modal fade" id="ModificarDatos" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Información:</h5>
+          </div>
+          <form class="form-group" action="Acciones/editarOrganizacion.php" method="get">
+
+
+            <div class="modal-body">
+              <input type="hidden" class="form-control" id="id_esquema" name="id_esquema">
+              <label>Organización:</label>
+              <input type="text" class="form-control" id="esquema" name="esquema">
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="location.reload();" >Cerrar</button>
+              <button type="submit" class="btn btn-success">Envíar</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
     <script type="text/javascript">
+    function modificaForm(datos) {
+      d = datos.split('||');
+      $('#id_esquema').val(d[0]);
+      $('#esquema').val(d[1]);
+    }
     function eliminarArea(datos) {
       $('#id_Org').val(datos);
     }

@@ -7,7 +7,6 @@ session_start();
 $id = $_GET['no'];
 $ar = $_GET['ar'];
 $sec = $_GET['sec'];
-session_start();
 include_once '../../includes/db2.php';
 
 $consulta = "SELECT * FROM indicadores WHERE id_area = '$id' AND sector = '$sec';";
